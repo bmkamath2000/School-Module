@@ -1,0 +1,51 @@
+body{
+ /* position:relative;*/
+}
+.header
+{
+  background-color: aqua;
+height:100px;
+width:auto;
+display : flex;
+align-items : center;
+}
+.sidebar-container
+{
+  background-color: blueviolet;
+  width:200px;
+  box-align:start;
+  flex-direction: column;
+}
+.sidebar
+{
+  flex: 1;
+}
+
+.body1
+{
+  background-color: darkgrey;
+  box-align:start;
+  flex:1;
+}
+.footer
+{
+  background-color: chartreuse;
+  height:100px;
+  width:auto;
+}
+.medium-logo
+{
+  float:left;
+  width:90px;
+  height:90px;
+}
+.centered-text
+{
+  align-items : center;
+justify-content: center;
+
+  }
+  .partition-div
+  {
+    display:flex;
+  }
