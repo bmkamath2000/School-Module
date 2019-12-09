@@ -49,3 +49,11 @@ justify-content: center;
   {
     display:flex;
   }
+.visible
+{
+display:block;
+}
+.invisible
+{
+  display:none;
+}
