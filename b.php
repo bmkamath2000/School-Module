@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
-    $rollno = $_POST['rollno'];
-    $sql = "INSERT INTO STUDENT (ROLLNO, NAME) VALUES('" . $rollno . ", ".$name."')";
+    
+    $sql = "INSERT INTO STUDENT (NAME) VALUES('" . $name . "')";
     $result = $conn->query($sql);
     $json = array("result"=>$result);
 } else if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
