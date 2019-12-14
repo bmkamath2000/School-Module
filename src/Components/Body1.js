@@ -34,14 +34,13 @@ class Body1 extends React.Component {
     addStudent(e) {
       e.preventDefault();
       var name = document.getElementById('t0').value;
-      var rollno = document.getElementById('t1').value;
+      
       ;(async () => {
         const response = await axios({
           url: 'http://localhost/api/school/b.php',
           method: 'post',
           data: qs.stringify({
-            name: name,
-            rollno:rollno
+            name: name
           }) 
       })
     
@@ -49,8 +48,9 @@ class Body1 extends React.Component {
     })()
     }
     
-    modifyStudent(e,rollno,name) {
+    modifyStudent(e,rollno) {
       e.preventDefault();
+      var name = document.getElementById(rollno).value;
       ;(async () => {
         const response = await axios({
           url: 'http://localhost/api/school/b.php',
@@ -93,7 +93,7 @@ class Body1 extends React.Component {
     axios.get(url).then(response => response.data)
     .then((data) => {
       this.setState({ takeclass: data })
-      //console.log(this.state.takeclass);
+      console.log(this.state.takeclass);
      })
      }
     render() {
@@ -110,10 +110,10 @@ class Body1 extends React.Component {
           </thead>
           {this.state.takeclass.map((record1) => (
           <tr>
-              <td>{ record1.NAME }</td>
+              <td><textarea id={ record1.ROLLNO }>{ record1.NAME }</textarea></td>
               <td>{ record1.ROLLNO }</td>
               <td>
-              <button onClick={(e)=>this.modifyStudent(e,record1.ROLLNO,record1.Name)}><img src={modify} height="20" width="20"></img></button>
+              <button onClick={(e)=>this.modifyStudent(e,record1.ROLLNO)}><img src={modify} height="20" width="20"></img></button>
               <button onClick={(e)=>this.deleteStudent(e,record1.ROLLNO)}><img src={trash} height="20" width="20"></img></button>
               </td>
           </tr>
@@ -124,7 +124,7 @@ class Body1 extends React.Component {
             <textarea id="t0" width="100"/>
             </td>
             <td>
-            <textarea id="t1" width="100"/>
+            xxx
             </td>
             <td>
             <button onClick={(e)=>this.addStudent(e)}><img src={plus} width="20" height="20"></img></button>
