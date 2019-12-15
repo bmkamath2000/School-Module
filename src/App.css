@@ -1,6 +1,3 @@
-body{
- /* position:relative;*/
-}
 .header
 {
   background-color: aqua;
@@ -15,10 +12,12 @@ align-items : center;
   width:200px;
   box-align:start;
   flex-direction: column;
+  
 }
 .sidebar
 {
   flex: 1;
+  
 }
 
 .body1
@@ -26,6 +25,9 @@ align-items : center;
   background-color: darkgrey;
   box-align:start;
   flex:1;
+  width:"100%";
+  display:"block";
+  min-height: 600px;
 }
 .footer
 {
@@ -45,9 +47,20 @@ align-items : center;
 justify-content: center;
 
   }
+  .centered-items-container
+  {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .centered-items
+  {
+    min-width:200px;
+  }
   .partition-div
   {
     display:flex;
+    
   }
 .visible
 {
