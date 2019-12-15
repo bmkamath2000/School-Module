@@ -11,7 +11,8 @@ class Body1 extends React.Component {
           super(props);
     this.state = {
       takeclass: [],
-      active:false
+      active:false,
+      editable:false
     }
     this.toggleClass1=this.toggleClass1.bind(this);
     this.addStudent=this.addStudent.bind(this);
@@ -19,18 +20,7 @@ class Body1 extends React.Component {
     this.deleteStudent=this.deleteStudent.bind(this);
     
   }
-   /* getStudent() {
-    var rollno = document.getElementById("t1").value;
-    ;(async () => {
-      const response = await axios({
-        url: 'http://localhost/api/school/b.php?rollno='+rollno,
-        method: 'get'
-      })
-    
-      document.getElementById("t2").value = response.data.name;
-    })()
-    }
-    */ 
+   
     addStudent(e) {
       e.preventDefault();
       var name = document.getElementById('t0').value;
@@ -50,7 +40,10 @@ class Body1 extends React.Component {
     
     modifyStudent(e,rollno) {
       e.preventDefault();
+      if(this.state.editable)
+      {
       var name = document.getElementById(rollno).value;
+      this.setState({editable:!this.state.editable})
       ;(async () => {
         const response = await axios({
           url: 'http://localhost/api/school/b.php',
@@ -60,10 +53,15 @@ class Body1 extends React.Component {
             name: name
           }) 
       })
-    
+      
       console.log(response);
       alert(response.data.result);
+    
     })()
+  }
+  else{
+    this.setState({editable:!this.state.editable})
+  }
     }
     
     
@@ -100,7 +98,7 @@ class Body1 extends React.Component {
       return (
           <React.Fragment>
           <h1>Attendance</h1>
-         <table border='1' width='100%' >
+         <table width='100%' style={{backgroundColor:"lightblue"}}>
           <thead>
             <tr>
               <th>Student Name</th>
@@ -110,7 +108,10 @@ class Body1 extends React.Component {
           </thead>
           {this.state.takeclass.map((record1) => (
           <tr>
-              <td><textarea id={ record1.ROLLNO }>{ record1.NAME }</textarea></td>
+              <td>
+                <td><td className={this.state.editable&&"invisible"}>{record1.NAME}</td>
+                <textarea id={ record1.ROLLNO } className={!this.state.editable&&"invisible"}>{ record1.NAME }</textarea></td>
+                </td>
               <td>{ record1.ROLLNO }</td>
               <td>
               <button onClick={(e)=>this.modifyStudent(e,record1.ROLLNO)}><img src={modify} height="20" width="20"></img></button>
