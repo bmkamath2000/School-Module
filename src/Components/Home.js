@@ -4,8 +4,8 @@ class Home extends React.Component
 render()
 {
     return(
-        <div>
-           <h1>Home</h1>
+        <div className="body1">
+           <h1 align="center">Home</h1>
         </div>
     );
 }

@@ -96,44 +96,51 @@ class Body1 extends React.Component {
      }
     render() {
       return (
-          <React.Fragment>
-          <h1>Attendance</h1>
-         <table width='100%' style={{backgroundColor:"lightblue"}}>
+          
+            <div className="body1">
+          <h1 align="center">Attendance</h1>
+         <table style={{width:"100%",backgroundColor:"lightblue"}}>
           <thead>
-            <tr>
-              <th>Student Name</th>
-              <th>Register Number</th>
-              <th>Operate</th>
+            <tr className="centered-items-container">
+              <th className="centered-items">Student Name</th>
+              <th className="centered-items">Register Number</th>
+              <th className="centered-items">Operate</th>
             </tr>
           </thead>
           {this.state.takeclass.map((record1) => (
-          <tr>
-              <td>
-                <td><td className={this.state.editable&&"invisible"}>{record1.NAME}</td>
-                <textarea id={ record1.ROLLNO } className={!this.state.editable&&"invisible"}>{ record1.NAME }</textarea></td>
+          <tr className="centered-items-container">
+              <td className="centered-items">
+                <td className={this.state.editable?"invisible":"centered-items"}>{record1.NAME}</td>
+                <textarea id={ record1.ROLLNO } className={!this.state.editable?"invisible":"centered-items"} defaultValue={ record1.NAME }></textarea>
                 </td>
-              <td>{ record1.ROLLNO }</td>
-              <td>
+              
+              <td className="centered-items">{ record1.ROLLNO }</td>
+              <td className="centered-items">
               <button onClick={(e)=>this.modifyStudent(e,record1.ROLLNO)}><img src={modify} height="20" width="20"></img></button>
               <button onClick={(e)=>this.deleteStudent(e,record1.ROLLNO)}><img src={trash} height="20" width="20"></img></button>
               </td>
           </tr>
           ))}
-          <tr><td colspan="3"><button onClick={(e)=>{this.toggleClass1(e);}}>{this.state.active?'Post':'Add Student'}</button></td></tr>
-          <tr className={!this.state.active&&"invisible"}>
-            <td>
+          <tr align="center">
+            <td colspan="3">
+              <button onClick={(e)=>{this.toggleClass1(e);}}>{this.state.active?'Post':'Add Student'}
+              </button>
+            </td>
+          </tr>
+          <tr className={!this.state.active?"invisible":"centered-items-container"}>
+            <td className="centered-items">
             <textarea id="t0" width="100"/>
             </td>
-            <td>
+            <td className="centered-items">
             xxx
             </td>
-            <td>
+            <td className="centered-items">
             <button onClick={(e)=>this.addStudent(e)}><img src={plus} width="20" height="20"></img></button>
             </td>
           </tr>
           </table> 
-         
-          </React.Fragment>
+          </div>
+          
       );
     }
   }
