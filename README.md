@@ -1,9 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 THE SCHOOL MIS UI
+
 ![schoolMIS](https://github.com/bmkamath2000/School-Module/assets/8761634/d8b25bc6-66e5-42a9-a8bd-12a1168de125)
+
 THE SCHOOL MIS on ADD
+
 ![OnAdd](https://github.com/bmkamath2000/School-Module/assets/8761634/0603a7be-4fd3-4e5c-ad18-3a07969d184e)
+
 THE SCHOOL MIS on MODIFY
+
 ![onModify](https://github.com/bmkamath2000/School-Module/assets/8761634/272e0874-a5fb-406d-95c0-1d043e9edc0c)
 
 ## Available Scripts
